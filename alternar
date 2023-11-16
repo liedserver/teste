@@ -1,14 +1,11 @@
-function alternarAbas(intervalo) {
-    var abas = Array.from(document.querySelectorAll('div[role="tab"]'));
-    var indiceAtual = 0;
+function simularCtrlTab() {
+    var evento = new KeyboardEvent('keydown', {
+        key: 'Tab',
+        ctrlKey: true,
+    });
 
-    function mostrarProximaAba() {
-        abas[indiceAtual].click();
-        indiceAtual = (indiceAtual + 1) % abas.length;
-    }
-
-    setInterval(mostrarProximaAba, intervalo);
+    document.dispatchEvent(evento);
 }
 
-// Defina o intervalo de tempo em milissegundos (por exemplo, 5000 para 5 segundos)
-alternarAbas(5000);
+// Chama a função para simular Ctrl + Tab a cada 5 segundos (5000 milissegundos)
+setInterval(simularCtrlTab, 5000);
